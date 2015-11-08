@@ -81,7 +81,7 @@ $( function() {
                     var si = screenInfo(500, 800);
                     var popup = "<a href='#' onclick=\"window.open(\'"+linkdigsUrl+"\', \'calculator\', \'height=800, width=500, location=no,"+
                               +" resizable=no, status=no, titlebar=no, top="+si.top+", left="+si.left+"\'); return false;\">Calculator</a>";
-                    marker.bindPopup("<p><b>Address:</b>"+data[i].address+"<br/><b>Original Price:</b>"+data[i].originalPrice+"<br/><b>Year Built:</b>"+data[i].yearBuilt+"<br/>"+popup+"</p>", {
+                    marker.bindPopup("<p><b>Address:</b>"+data[i].address+"<br/><b>Price:</b>"+data[i].price+"<br/><b>Year Built:</b>"+data[i].yearBuilt+"<br/>"+popup+"</p>", {
                     showOnMouseOver: true
                     });
                     markers.addLayer(marker);
@@ -119,8 +119,8 @@ $( function() {
               title: 'Address',
               sortable: true
           }, {
-              field: 'originalPrice',
-              title: 'Original Price',
+              field: 'price',
+              title: 'Price',
               sortable: true
           }, {
               field: 'listDate',
