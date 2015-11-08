@@ -49,7 +49,6 @@ $( function() {
       // var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
       var width = screen.width;
       var height = screen.height;
-      console.log({w: width, h: height});
 
       var left = ((width / 2) - (w / 2));
       var top = ((height / 2) - (h / 2));
@@ -92,6 +91,23 @@ $( function() {
 
     }
 
+    function calculateFormatter(value, row, index) {
+        return [
+            '<a class="calculate btn btn-primary" href="javascript:void(0)" title="Calculate">',
+            'Calculate',
+            '</a>  '
+        ].join('');
+    }
+
+    window.calculateEvents = {
+        'click .calculate': function (e, value, row, index) {
+
+            var linkdigsUrl = "http://admin.linkdigs.com/calc?address="+row.address;
+            var si = screenInfo(500, 800);
+            window.open(linkdigsUrl, 'calculator', "height=800, width=500, location=no, resizable=no, status=no, titlebar=no, top="+si.top+", left="+si.left);
+        }
+    };
+
     function loadAsList(refresh) {
       if(bsTable) {
         if(refresh) bsTable.bootstrapTable("load", data);
@@ -118,6 +134,12 @@ $( function() {
               field: 'publicRemarks',
               title: 'Remarks',
               visible: false
+          }, {
+              field: 'calculate',
+              title: 'Calculate',
+              align: 'center',
+              events: calculateEvents,
+              formatter: calculateFormatter
           }],
           search: true,
           showRefresh: true,
@@ -127,6 +149,7 @@ $( function() {
         });
       }
     }
+
 
     $("#search").click(
       function() {
