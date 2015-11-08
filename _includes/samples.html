@@ -1,0 +1,30 @@
+<style>
+#samples-switcher {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  list-style: none;
+  border: 1px solid grey;
+  z-index: 9999;
+}
+#samples-switcher li {
+  float: left;
+  padding: 5px 10px;
+}
+
+#samples-switcher li a{
+  color: grey !important;
+  font-size: 16px !important;
+  text-decoration: underline !important;
+}
+</style>
+<ul id="samples-switcher">
+  <li><a href="{{ '/' | prepend: site.baseurl }}">Home</a></li>
+  <li><a href="{{ '/samples/aplending.html' | prepend: site.baseurl }}">Aplending</a></li>
+  <li><a href="{{ '/samples/capturerealty.html' | prepend: site.baseurl }}">Capture Realty</a></li>
+  <li><a href="{{ '/samples/linkDigs96.html' | prepend: site.baseurl }}">VeriStone</a></li>
+  <li><a href="{{ '/samples/wafirstmortgage.html' | prepend: site.baseurl }}">WA First Mortgage</a></li>
+</ul>
