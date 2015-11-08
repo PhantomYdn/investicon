@@ -10,12 +10,5 @@ layout: default
 {% include dummy.html %}
 {% endfor%}
 
-  <div id="ic-icon" onclick="document.getElementById('ic-window').style.display='block'">
-    <a href="#" onclick="document.getElementById('ic-window').style.display='block'; return false;">
-      <img src="{{ "/images/icon.png" | prepend: site.baseurl }}">
-    </a>
-  </div>
-  <div id="ic-window">
-    <iframe width="600px" height="400px" src="/investicon.html"></iframe>
-  </div>
+  <script lang="JavaScript" src="{{ "/js/investicon-install.js" | prepend: site.baseurl }}"></script>
 </div>
