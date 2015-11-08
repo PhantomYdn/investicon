@@ -1,3 +1,7 @@
+# Short screencast
+
+![Screen Cast](https://drive.google.com/file/d/0BxzvQixnNXlcXzhLOEdMYWl1RGc/view?usp=sharing)
+
 # How to run
 
 ## Install jekyll
