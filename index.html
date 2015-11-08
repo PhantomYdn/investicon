@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">This is pretty common site about Real Estate</h1>
+  <p>But just look into right-top side. There is small blue icon. Click it!</p>
+{% for num in (1...10) %}
+{% include dummy.html %}
+{% endfor%}
+
+  <div id="ic-icon" onclick="document.getElementById('ic-window').style.display='block'">
+    <a href="#" onclick="document.getElementById('ic-window').style.display='block'; return false;">
+      <img src="{{ "/images/icon.png" | prepend: site.baseurl }}">
+    </a>
+  </div>
+  <div id="ic-window">
+    <iframe width="600px" height="400px" src="/investicon.html"></iframe>
+  </div>
+</div>

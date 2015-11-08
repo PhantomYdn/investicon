@@ -1,0 +1,41 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Invest Icon!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ "/assets/bootstrap/css/bootstrap.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/bootstrap-table/css/bootstrap-table.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/investicon.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <script lang="JavaScript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script lang="JavaScript" src="{{ "/assets/bootstrap/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+  <script lang="JavaScript" src="{{ "/js/investicon.js" | prepend: site.baseurl }}"></script>
+  <script lang="JavaScript" src="{{ "/assets/bootstrap-table/js/bootstrap-table.min.js" | prepend: site.baseurl }}"></script>
+  <script lang="JavaScript" src="{{ "/assets/bootstrap-table/js/bootstrap-table-export.js" | prepend: site.baseurl }}"></script>
+  <script src='https://rets.ly/js/sdk'></script>
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+</head>
+<body id="ic-dialog">
+  <section id="loading">
+    <h1>RETSLY API is being loading... Please wait.</h1>
+  </section>
+  <section id="main"  style="display: none;">
+    <div class="container">
+      <form onsubmit="return false;">
+      <div class="form-group col-xs-10">
+        <input type="text" class="form-control" id="address" placeholder="Address or ZIP">
+      </div>
+      <button type="button" class="btn btn-primary col-xs-2" id="search">Search</button>
+      <button type="button" class="btn btn-default col-xs-12" id="asmap">View as Map</button>
+    </form>
+    <div id="listing">
+      <table></table>
+    </div>
+    <div id="map" style="display:none">
+    </div>
+  </section>
+</body>
+</html>

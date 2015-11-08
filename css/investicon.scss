@@ -1,0 +1,29 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+#ic-icon {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 90px;
+  height: 90px;
+}
+
+#ic-window {
+  display: none;
+  position: fixed;
+  top: 100px;
+  right: 120px;
+}
+
+#ic-dialog {
+  background: white;
+
+  #map {
+    height: 400px;
+    width: 100%;
+  }
+
+}
