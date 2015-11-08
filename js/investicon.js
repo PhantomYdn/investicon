@@ -40,6 +40,24 @@ $( function() {
         loadAsList(refresh);
     }
 
+    function screenInfo(w, h) {
+      // var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+      // var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+      // console.log({dl: dualScreenLeft, dt: dualScreenTop});
+
+      // var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+      // var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+      var width = screen.width;
+      var height = screen.height;
+      console.log({w: width, h: height});
+
+      var left = ((width / 2) - (w / 2));
+      var top = ((height / 2) - (h / 2));
+
+      return {left: left, top: top};
+    }
+
+
     function loadAsMap(refresh) {
 
       if(!map && $('#map').is(":visible")) {
@@ -60,7 +78,11 @@ $( function() {
         markers.clearLayers();
                 for (var i = 0; i < data.length; i++) {
                     var marker = L.marker([data[i].coordinates[1], data[i].coordinates[0]]);
-                    marker.bindPopup("<p><b>Address:</b>"+data[i].address+"<br/><b>Original Price:</b>"+data[i].originalPrice+"<br/><b>Year Built:</b>"+data[i].yearBuilt+"<br/></p>", {
+                    var linkdigsUrl = "http://admin.linkdigs.com/calc?address="+data[i].address;
+                    var si = screenInfo(500, 800);
+                    var popup = "<a href='#' onclick=\"window.open(\'"+linkdigsUrl+"\', \'calculator\', \'height=800, width=500, location=no,"+
+                              +" resizable=no, status=no, titlebar=no, top="+si.top+", left="+si.left+"\'); return false;\">Calculator</a>";
+                    marker.bindPopup("<p><b>Address:</b>"+data[i].address+"<br/><b>Original Price:</b>"+data[i].originalPrice+"<br/><b>Year Built:</b>"+data[i].yearBuilt+"<br/>"+popup+"</p>", {
                     showOnMouseOver: true
                     });
                     markers.addLayer(marker);

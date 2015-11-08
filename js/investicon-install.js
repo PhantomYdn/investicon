@@ -1,6 +1,6 @@
 var icUrl = ""; //That all are loading from localhost, but in reality we should have here our site URL
 
-document.write("<div onclick=\"document.getElementById('ic-window').style.display='block'\" style='position: fixed;top: 100px;right: 0;width: 90px;height: 90px;'>");
+document.write("<div onclick=\"document.getElementById('ic-window').style.display='block'\" style='position: fixed;top: 100px;right: 0;width: 90px;height: 90px;z-index:9999'>");
 document.write("  <a href=\"#\" onclick=\"document.getElementById('ic-window').style.display='block'; return false;\">");
 document.write("    <img src=\""+icUrl+"/images/icon.png\" style='max-width:100%'>");
 document.write("  </a>");
