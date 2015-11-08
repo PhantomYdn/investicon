@@ -95,8 +95,20 @@ $( function() {
         return [
             '<a class="calculate btn btn-primary" href="javascript:void(0)" title="Calculate">',
             'Calculate',
-            '</a>  '
+            '</a> ',
+            '<a class="galery btn btn-success" href="javascript:void(0)" title="Galery">',
+            '&nbsp;Galery&nbsp;',
+            '</a> '
         ].join('');
+    }
+
+    function loadImages(gal, media) {
+      var tryLoad = function () {
+        if(!gal.loadImages) {
+            setTimeout(tryLoad,1000);
+        } else { gal.loadImages(media); }
+      };
+      tryLoad();
     }
 
     window.calculateEvents = {
@@ -105,6 +117,12 @@ $( function() {
             var linkdigsUrl = "http://admin.linkdigs.com/calc?address="+row.address;
             var si = screenInfo(500, 800);
             window.open(linkdigsUrl, 'calculator', "height=800, width=500, location=no, resizable=no, status=no, titlebar=no, top="+si.top+", left="+si.left);
+        },
+        'click .galery': function (e, value, row, index) {
+            var si = screenInfo(800, 600);
+            var gal = window.open('/gallery.html', 'galery', "height=600, width=800, location=no, resizable=no, status=no, titlebar=no, top="+si.top+", left="+si.left);
+
+            loadImages(gal, row.media);
         }
     };
 
